@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Fleet2Share is a leading platform for sharing vehicles efficiently, with features to help you save money and access a wide variety of vehicles easily.">
+    <meta name="keywords" content="Fleet2Share, vehicle sharing, car rental, fleet management, ride-sharing, vehicle sharing platform">
+    <meta name="author" content="Fleet2Share">
+    <meta property="og:title" content="Fleet2Share - Vehicle Sharing Platform">
+    <meta property="og:description" content="Fleet2Share helps individuals and businesses share vehicles for cost-effective transportation solutions.">
+    <meta property="og:image" content="URL_to_image.jpg">
+    <meta property="og:url" content="https://www.fleet2share.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fleet2Share - Vehicle Sharing Platform">
+    <meta name="twitter:description" content="Fleet2Share provides an easy, flexible, and cost-effective way to share vehicles.">
+    <meta name="twitter:image" content="URL_to_image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.fleet2share.com">
+
+    <title>Fleet2Share - Vehicle Sharing Platform</title>
+
+    <!-- Open Graph Tags for social media sharing -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Structured Data (JSON-LD for SEO) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Fleet2Share",
+        "url": "https://www.fleet2share.com",
+        "logo": "https://www.fleet2share.com/logo.jpg",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-800-123-4567",
+            "contactType": "Customer Service",
+            "areaServed": "US",
+            "availableLanguage": "English"
+        }
+    }
+    </script>
+
+    <style>
+        /* Dark Mode Variables - Enhanced */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0,0,0,0.1);
+            --shadow-medium: rgba(0,0,0,0.15);
+            --shadow-heavy: rgba(0,0,0,0.25);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-color: #333333;
+            --card-bg: #1e1e1e;
+            --shadow-light: rgba(255,255,255,0.05);
+            --shadow-medium: rgba(255,255,255,0.1);
+            --shadow-heavy: rgba(255,255,255,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Theme Toggle - FIXED */
+        .theme-toggle {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 1001;
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 12px 35px var(--shadow-heavy);
+            background: linear-gradient(135deg, #FF6B35, #2C5AA0);
+            border-color: transparent;
+        }
+
+        .theme-toggle:hover i {
+            color: white !important;
+            transform: scale(1.2);
+        }
+
+        .theme-toggle i {
+            font-size: 24px;
+            color: var(--text-primary);
+            transition: all 0.4s ease;
+        }
+
+        /* Add glow effect for dark mode */
+        [data-theme="dark"] .theme-toggle {
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Magical Loading Dots */
+        .magic-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .magic-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #FF6B35, #2C5AA0);
+            border-radius: 50%;
+            animation: float-magic 6s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes float-magic {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-primary);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B35;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            margin: 0 auto;
+            object-fit: contain;
+            max-width: 120px;
+            display: block;
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FF6B35;
+        }
+
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .login-btn {
+            color: #2C5AA0;
+            background: transparent;
+            border-color: #2C5AA0;
+        }
+
+        .login-btn:hover {
+            background: #2C5AA0;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .signup-btn {
+            background: #FF6B35;
+            color: white;
+            border-color: #FF6B35;
+        }
+
+        .signup-btn:hover {
+            background: #e55530;
+            border-color: #e55530;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 101;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #f8f9fa;
+            z-index: 99;
+            padding-top: 80px;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-weight: 500;
+            display: block;
+            padding: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: #FF6B35;
+        }
+
+        .mobile-auth-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        .mobile-auth-buttons .auth-btn {
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%23000" opacity="0.03"/><circle cx="80" cy="80" r="0.5" fill="%23000" opacity="0.03"/><circle cx="40" cy="60" r="0.5" fill="%23000" opacity="0.03"/><circle cx="60" cy="40" r="0.5" fill="%23000" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-title .blue {
+            color: #2C5AA0;
+        }
+
+        .hero-title .orange {
+            color: #FF6B35;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary {
+            background: #FF6B35;
+            color: white;
+            border-color: #FF6B35;
+        }
+
+        .cta-primary:hover {
+            background: #e55530;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #2C5AA0;
+            border-color: #2C5AA0;
+        }
+
+        .cta-secondary:hover {
+            background: #2C5AA0;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.3);
+        }
+
+        .truck-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .truck-image {
+            width: 600px;
+            height: 350px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.57-removebg-preview.png?v=1751036277');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            margin: 0 auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Key Features Section */
+        .key-features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-icon {
+            font-size: 40px;
+            color: #2C5AA0;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2C5AA0;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #FF6B35;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            color: #FF6B35;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-item::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background: #FF6B35;
+            display: block;
+        }
+
+        .step-item:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF6B35, #e55530);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ROI Calculator Section */
+        .roi-calculator {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px var(--shadow-medium);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .calculator-inputs {
+            display: grid;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .calculator-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-input:focus {
+            outline: none;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .calculator-results {
+            background: linear-gradient(135deg, #FF6B35, #e55530);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .result-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .savings-highlight {
+            background: linear-gradient(135deg, #2C5AA0, #1e3f73);
+            margin-top: 20px;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(44, 90, 160, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(44, 90, 160, 0.8); }
+        }
+
+        /* Live Statistics Section */
+        .live-stats {
+            padding: 80px 0;
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35, #2C5AA0);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 10px;
+            counter-reset: stat-counter;
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Interactive Demo Section */
+        .interactive-demo {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-medium);
+            border: 1px solid var(--border-color);
+        }
+
+        .demo-tabs {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .demo-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .demo-tab.active {
+            background: #FF6B35;
+            color: white;
+        }
+
+        .demo-tab:hover:not(.active) {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .demo-content {
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .demo-feature {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .demo-feature.active {
+            display: block;
+        }
+
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .feature-description h3 {
+            color: #2C5AA0;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-description p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-points {
+            list-style: none;
+        }
+
+        .feature-points li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-points li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+
+        .feature-visual {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            border: 2px dashed var(--border-color);
+        }
+
+        [data-theme="dark"] .feature-visual {
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+        }
+
+        .feature-icon-large {
+            font-size: 4rem;
+            color: #FF6B35;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .testimonial-item {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35, #2C5AA0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Enhanced AI Chat Widget */
+        .ai-chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FF6B35, #e55530);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2C5AA0, #1e3f73);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .chat-toggle:hover::before {
+            transform: scale(1);
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        .chat-toggle i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .chat-notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #ff3333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            animation: pulse-notification 2s infinite;
+        }
+
+        @keyframes pulse-notification {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 380px;
+            height: 500px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow-heavy);
+            display: none;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: block;
+            animation: slideUpBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideUpBounce {
+            0% { 
+                transform: translateY(30px) scale(0.8); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateY(0) scale(1); 
+                opacity: 1; 
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #FF6B35, #e55530);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .chat-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .chat-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        .chat-messages {
+            height: 320px;
+            padding: 20px;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .message.user {
+            background: linear-gradient(135deg, #FF6B35, #e55530);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.bot {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-bottom-left-radius: 4px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 12px 16px;
+            background: var(--card-bg);
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            max-width: 80px;
+            border: 1px solid var(--border-color);
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #FF6B35;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            resize: none;
+            max-height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            background: #FF6B35;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send-btn:hover {
+            background: #e55530;
+            transform: scale(1.1);
+        }
+
+        .chat-send-btn:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Web App Features */
+        .web-features {
+            padding: 80px 0;
+            background: var(--card-bg);
+        }
+
+        .web-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .web-text h2 {
+            font-size: 2.2rem;
+            color: #2C5AA0;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .web-text p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.5;
+            transition: transform 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .feature-list li::before {
+            content: "●";
+            color: #FF6B35;
+            margin-right: 10px;
+        }
+
+        .feature-list strong {
+            color: #FF6B35;
+        }
+
+        .web-mockups {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .web-mockup {
+            flex: 1;
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .web-mockup:hover {
+            transform: scale(1.02);
+        }
+
+        .mockup-screen {
+            width: 100%;
+            height: 0;
+            padding-bottom: 60%;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+
+        .mockup-screen:hover {
+            transform: scale(1.05);
+        }
+
+        .mockup-screen.dashboard {
+            background-image: url('https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.40.28_2.jpg?v=1751035690');
+        }
+
+        .mockup-screen.management {
+            background-image: url('https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.40.28_1.jpg?v=1751035690');
+        }
+
+        .mockup-label {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Mobile Features */
+        .mobile-features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .mobile-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .phones-display {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .phone-mockup {
+            width: 220px;
+            height: 440px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            background: #000;
+            padding: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: rotateY(5deg) scale(1.05);
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .phone-mockup:nth-child(2) {
+            transform: translateY(30px);
+        }
+
+        .phone-mockup:nth-child(2):hover {
+            transform: translateY(30px) rotateY(-5deg) scale(1.05);
+        }
+
+        .mobile-text h2 {
+            font-size: 2.2rem;
+            color: #2C5AA0;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .mobile-text p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #FF6B35 0%, #e55530 100%);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footerPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23fff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23footerPattern)"/></svg>');
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.3);
+        }
+
+        .newsletter-btn {
+            background: #2C5AA0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #1e3f73;
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-info li:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-info i {
+            width: 18px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: center;
+                position: relative;
+            }
+
+            .logo {
+                order: 2;
+                margin: 0 auto;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 0;
+                order: 3;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .truck-image {
+                width: 90%;
+                height: 250px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .web-content,
+            .mobile-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .phones-display {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 360px;
+            }
+
+            .web-mockups {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .mockup-screen {
+                padding-bottom: 50%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+        }
+
+        .loaded {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Magic Floating Dots -->
+    <div class="magic-dots" id="magicDots"></div>
+
+    <!-- Enhanced Dark Mode Toggle - FIXED -->
+    <div class="theme-toggle" id="theme-toggle-btn" onclick="switchTheme()">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.56_2.jpg?v=1751035690" alt="Fleet2Share Logo" loading="lazy" onerror="this.style.display='none'">
+                    
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#calculator">ROI Calculator</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="https://www.fleet2share.com/login" class="auth-btn login-btn">Login</a>
+                    <a href="https://www.fleet2share.com/signup" class="auth-btn signup-btn">Sign Up</a>
+                </div>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#features" onclick="closeMobileMenu()">Features</a></li>
+                <li><a href="#calculator" onclick="closeMobileMenu()">ROI Calculator</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+            <div class="mobile-auth-buttons">
+                <a href="https://www.fleet2share.com/login" class="auth-btn login-btn">Login</a>
+                <a href="https://www.fleet2share.com/signup" class="auth-btn signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="hero-title">
+                <span class="blue">Smarter Truck</span><br>
+                <span class="orange">Dispatching</span> <span class="blue">&</span> <span class="orange">Vehicle Sharing</span>
+            </h1>
+            <p class="hero-subtitle">
+                Fleet2Share is a powerful, all-in-one mobile and web platform designed to simplify and optimize vehicle and cargo sharing for communities, logistics teams, and third-party companies.
+            </p>
+            <div class="hero-cta">
+                <a href="https://www.fleet2share.com/signup" class="cta-btn cta-primary">Get Started Free</a>
+                <a href="#features" class="cta-btn cta-secondary">Watch Demo</a>
+            </div>
+            <div class="truck-container">
+                <div class="truck-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <h2 class="section-title">How It Works</h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sign Up</h3>
+                    <p class="step-description">Create your Fleet2Share account and set up your company profile in minutes.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Add Vehicles</h3>
+                    <p class="step-description">Register your fleet and start sharing vehicles with your network.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Assign Tasks</h3>
+                    <p class="step-description">Create loads, assign drivers, and track everything in real-time.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Track & Optimize</h3>
+                    <p class="step-description">Monitor performance and optimize operations with detailed insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="key-features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🌐</div>
+                <h2 class="section-title">Key Features</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-truck feature-icon"></i>
+                    <h3 class="feature-title">Vehicle & Community Sharing</h3>
+                    <p class="feature-description">Easily share your own vehicles or access shared vehicles within your network. Reduce idle time, maximize fleet utilization, and build a collaborative logistics ecosystem.</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-boxes feature-icon"></i>
+                    <h3 class="feature-title">Load Management</h3>
+                    <p class="feature-description">Organize, assign, and track cargo loads across your fleet. Ensure timely deliveries with structured load creation and distribution tools.</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h3 class="feature-title">Role-Based Access Control</h3>
+                    <p class="feature-description">Support for two main roles: Dispatchers can manage fleet activity, and vehicle and load management. Drivers can focus on focused access for safe and efficient operations.</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-tasks feature-icon"></i>
+                    <h3 class="feature-title">Task Assignment & Tracking</h3>
+                    <p class="feature-description">Dispatchers can assign loads, set schedules, manage trips, and track real-time status updates for complete operational visibility.</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3 class="feature-title">Secure & Organized Operations</h3>
+                    <p class="feature-description">Driver access is streamlined to reduce errors and maximize focus, while all data is securely managed to protect your operations.</p>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-share-nodes feature-icon"></i>
+                    <h3 class="feature-title">Collaborative Fleet Use</h3>
+                    <p class="feature-description">Built for communities and teams who want to share resources, follow vehicle activity, and reduce operational costs through intelligent asset sharing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web App Features -->
+    <section class="web-features">
+        <div class="container">
+            <div class="web-content">
+                <div class="web-text">
+                    <h2>Web App Features, Dispatcher</h2>
+                    <p>Dispatchers get access to a comprehensive control center, including:</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>My Vehicles:</strong> Manage owned and shared vehicles, and track destinations.</li>
+                        <li><strong>Community Sharing:</strong> View and interact with shared vehicles.</li>
+                        <li><strong>Load Management:</strong> Create, publish, and track loads.</li>
+                        <li><strong>Requests & Approvals:</strong> View incoming usage requests from other companies.</li>
+                        <li><strong>Member Directory:</strong> Manage connected companies, including blocking/unblocking.</li>
+                        <li><strong>Insights:</strong> Monitor followed vehicles and shared resources for performance optimization.</li>
+                    </ul>
+                </div>
+                
+                <div class="web-mockups">
+                    <div class="web-mockup">
+                        <div class="mockup-screen dashboard"></div>
+                        <div class="mockup-label">Dashboard Overview</div>
+                    </div>
+                    <div class="web-mockup">
+                        <div class="mockup-screen management"></div>
+                        <div class="mockup-label">Fleet Management</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Features -->
+    <section class="mobile-features">
+        <div class="container">
+            <div class="mobile-content">
+                <div class="phones-display">
+                    <div class="phone-mockup">
+                        <img src="https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.56.jpg?v=1751035690" alt="Fleet2Share Mobile App - Driver Interface" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                    
+                    <div class="phone-mockup">
+                        <img src="https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.56_1.jpg?v=1751035690" alt="Fleet2Share Mobile App - Live Tracking" loading="lazy" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                
+                <div class="mobile-text">
+                    <h2>Mobile App Features, Driver Experience</h2>
+                    <p>Drivers have a dedicated mobile experience that includes:</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>Vehicle Selection:</strong> Choose from assigned or shared vehicles.</li>
+                        <li><strong>Live Location Tracking:</strong> View real-time location on the map.</li>
+                        <li><strong>Status Updates:</strong> Easily update delivery or trip status (Available, Loading, etc.)</li>
+                        <li><strong>Cargo Capacity Trend:</strong> Specify remaining available space in kg.</li>
+                        <li><strong>Destination Planning:</strong> Add or update delivery destinations on the go.</li>
+                        <li><strong>Vehicle Switching:</strong> Seamlessly switch to another assigned vehicle if needed.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section id="calculator" class="roi-calculator">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🧮</div>
+                <h2 class="section-title">Calculate Your Fleet Savings</h2>
+                <p style="color: var(--text-secondary); margin-top: 15px;">See how much you could save with Fleet2Share's intelligent vehicle sharing</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-grid">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="vehicles">Number of Vehicles</label>
+                            <input type="number" id="vehicles-input" class="calculator-input" value="10" min="1" max="1000" onchange="updateROI()" oninput="updateROI()">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="monthly-cost">Monthly Operating Cost per Vehicle ($)</label>
+                            <input type="number" id="monthly-cost-input" class="calculator-input" value="2500" min="100" max="10000" onchange="updateROI()" oninput="updateROI()">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="idle-time">Average Idle Time (%)</label>
+                            <input type="number" id="idle-time-input" class="calculator-input" value="40" min="0" max="100" onchange="updateROI()" oninput="updateROI()">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="sharing-rate">Expected Sharing Rate (%)</label>
+                            <input type="number" id="sharing-rate-input" class="calculator-input" value="25" min="0" max="100" onchange="updateROI()" oninput="updateROI()">
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-results">
+                        <div class="result-item">
+                            <div class="result-value" id="monthly-savings">$2,500</div>
+                            <div class="result-label">Monthly Savings</div>
+                        </div>
+                        
+                        <div class="result-item">
+                            <div class="result-value" id="yearly-savings">$30,000</div>
+                            <div class="result-label">Yearly Savings</div>
+                        </div>
+                        
+                        <div class="result-item savings-highlight">
+                            <div class="result-value" id="efficiency-gain">15%</div>
+                            <div class="result-label">Efficiency Improvement</div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="https://www.fleet2share.com/signup" 
+                               class="cta-btn cta-primary" 
+                               style="background: white; color: #FF6B35; border: 2px solid white; padding: 15px 30px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 8px; display: inline-block; transition: all 0.3s ease;"
+                               target="_blank"
+                               onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='translateY(-2px)'"
+                               onmouseout="this.style.background='white'; this.style.transform='translateY(0)'">
+                                🚀 Start Saving Now - Free Trial
+                            </a>
+                            <div style="margin-top: 10px; font-size: 12px; opacity: 0.8;">
+                                ✅ No credit card required • 30-day free trial
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Statistics Section -->
+    <section class="live-stats">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2 class="section-title">Live Platform Statistics</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-vehicles" data-target="3247">3,247</div>
+                    <div class="stat-label">Active Vehicles</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-companies" data-target="187">187</div>
+                    <div class="stat-label">Partner Companies</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-trips" data-target="12580">12,580</div>
+                    <div class="stat-label">Successful Trips</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-savings" data-target="42">42</div>
+                    <div class="stat-label">% Cost Reduction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="interactive-demo">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🎮</div>
+                <h2 class="section-title">Interactive Platform Demo</h2>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-tabs">
+                    <button class="demo-tab active" id="tab-tracking" onclick="switchDemo('tracking')">
+                        <i class="fas fa-map-marked-alt" style="margin-right: 8px;"></i>
+                        Live Tracking
+                    </button>
+                    <button class="demo-tab" id="tab-sharing" onclick="switchDemo('sharing')">
+                        <i class="fas fa-handshake" style="margin-right: 8px;"></i>
+                        Vehicle Sharing
+                    </button>
+                    <button class="demo-tab" id="tab-analytics" onclick="switchDemo('analytics')">
+                        <i class="fas fa-chart-line" style="margin-right: 8px;"></i>
+                        Analytics
+                    </button>
+                </div>
+                
+                <div class="demo-content">
+                    <div class="demo-feature active" id="demo-tracking">
+                        <div class="feature-showcase">
+                            <div class="feature-description">
+                                <h3>Real-Time Vehicle Tracking</h3>
+                                <p>Monitor your entire fleet in real-time with precision GPS tracking, intelligent route optimization, and instant notifications for complete operational visibility.</p>
+                                <ul class="feature-points">
+                                    <li>Live GPS tracking with 99.9% accuracy</li>
+                                    <li>Automatic route optimization saves 18% fuel</li>
+                                    <li>Instant alerts for delays, breakdowns, or issues</li>
+                                    <li>Driver behavior monitoring & scoring</li>
+                                    <li>Geofencing with custom boundary alerts</li>
+                                </ul>
+                                <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #28a745;">
+                                    <strong style="color: #28a745;">Right Now:</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 14px;">
+                                        Vehicle LHE-7432 → En route to Karachi | <strong style="color: #28a745;">ETA: 2:45 PM</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div style="text-align: center;">
+                                    <i class="fas fa-map-marked-alt feature-icon-large" style="color: #28a745; margin-bottom: 20px;"></i>
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #28a745;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                            <span style="font-weight: 600; color: var(--text-primary);">Vehicle: LHE-7432</span>
+                                            <span style="color: #28a745; font-size: 12px;">● MOVING</span>
+                                        </div>
+                                        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.4;">
+                                            <div style="margin-bottom: 8px;">📍 Current: M-2 Motorway, KM 347</div>
+                                            <div style="margin-bottom: 8px;">🎯 Destination: Port Qasim, Karachi</div>
+                                            <div style="margin-bottom: 8px;">⏱️ ETA: 2:45 PM (On Schedule)</div>
+                                            <div style="margin-bottom: 8px;">⛽ Fuel: 78% | Speed: 85 km/h</div>
+                                            <div style="color: #28a745;">Driver: Muhammad Ali ⭐ 4.8/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-feature" id="demo-sharing">
+                        <div class="feature-showcase">
+                            <div class="feature-description">
+                                <h3>Smart Vehicle Sharing Network</h3>
+                                <p>Connect with 150+ partner companies and share vehicles efficiently. Our AI matches your idle vehicles with nearby companies who need them.</p>
+                                <ul class="feature-points">
+                                    <li>Intelligent matching with 95% success rate</li>
+                                    <li>Automated booking in under 2 minutes</li>
+                                    <li>Revenue sharing: Earn $150-500/vehicle/month</li>
+                                    <li>Full insurance coverage included</li>
+                                    <li>Real-time availability tracking</li>
+                                </ul>
+                                <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #FF6B35;">
+                                    <strong style="color: #FF6B35;">Live Example:</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 14px;">
+                                        Truck #PK-2451 shared with Asapp Studio → <strong style="color: #28a745;">$340 earned this month</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div style="text-align: center;">
+                                    <i class="fas fa-handshake feature-icon-large" style="color: #FF6B35; margin-bottom: 20px;"></i>
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #FF6B35; margin-top: 20px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                            <span style="font-weight: 600; color: var(--text-primary);">Available Now</span>
+                                            <span style="color: #28a745; font-size: 12px;">● LIVE</span>
+                                        </div>
+                                        <div style="font-size: 14px; color: var(--text-secondary);">
+                                            <div>📍 Lahore → Karachi</div>
+                                            <div>🚛 Capacity: 12 tons</div>
+                                            <div>💰 Rate: $280/day</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-feature" id="demo-analytics">
+                        <div class="feature-showcase">
+                            <div class="feature-description">
+                                <h3>Advanced Analytics & Intelligence</h3>
+                                <p>Get actionable insights with our comprehensive analytics dashboard. Track KPIs, predict maintenance, and optimize operations with AI-powered recommendations.</p>
+                                <ul class="feature-points">
+                                    <li>Real-time KPI monitoring dashboard</li>
+                                    <li>Predictive maintenance saves 25% costs</li>
+                                    <li>Route optimization reduces fuel by 18%</li>
+                                    <li>Driver performance scoring system</li>
+                                    <li>Carbon footprint tracking & reporting</li>
+                                </ul>
+                                <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #2C5AA0;">
+                                    <strong style="color: #2C5AA0;">This Month:</strong><br>
+                                    <span style="color: var(--text-secondary); font-size: 14px;">
+                                        Fleet Efficiency: <strong style="color: #28a745;">87%</strong> | Cost Saved: <strong style="color: #28a745;">$12,450</strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div style="text-align: center;">
+                                    <i class="fas fa-chart-line feature-icon-large" style="color: #2C5AA0; margin-bottom: 20px;"></i>
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #2C5AA0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 12px;">
+                                            <div style="text-align: center;">
+                                                <div style="color: #FF6B35; font-size: 24px; font-weight: 700;">2,847</div>
+                                                <div style="color: var(--text-secondary);">Total Trips</div>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <div style="color: #2C5AA0; font-size: 24px; font-weight: 700;">94.2%</div>
+                                                <div style="color: var(--text-secondary);">On-Time Rate</div>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <div style="color: #28a745; font-size: 24px; font-weight: 700;">$45.2K</div>
+                                                <div style="color: var(--text-secondary);">Monthly Revenue</div>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <div style="color: #17a2b8; font-size: 24px; font-weight: 700;">156</div>
+                                                <div style="color: var(--text-secondary);">Active Drivers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">⭐</div>
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">
+                        "Fleet2Share has revolutionized our logistics operations at Asapp Studio. We've reduced operational costs by 35% and improved delivery efficiency dramatically. The vehicle sharing feature alone saves us $4,200 monthly. The real-time tracking and AI-powered route optimization are absolute game changers for our business!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">IZ</div>
+                        <div class="author-info">
+                            <h4>Ibrar Zahoor</h4>
+                            <p>Operations Manager, Asapp Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced AI Chat Widget -->
+    <div class="ai-chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()">
+            <i class="fas fa-robot"></i>
+            <div class="chat-notification" id="chatNotification" style="display: none;">1</div>
+        </button>
+        
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">🤖</div>
+                    <div>
+                        <div style="font-weight: 600;">Fleet2Share AI</div>
+                        <div class="chat-status">Online • Powered by DeepSeek</div>
+                    </div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div>👋 Hi there! I'm your Fleet2Share AI assistant powered by DeepSeek.</div>
+                </div>
+                <div class="message bot">
+                    <div>I can help you with:</div>
+                    <div style="margin-top: 8px;">
+                        • Platform features & pricing<br>
+                        • Technical questions<br>
+                        • Account setup<br>
+                        • Best practices
+                    </div>
+                </div>
+                <div class="message bot" style="margin-top: 10px;">
+                    <div>How can I assist you today? 🚀</div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-input-container">
+                    <textarea class="chat-input" id="chatInput" placeholder="Type your message..." rows="1" onkeypress="handleChatKeyPress(event)" oninput="adjustTextareaHeight(this)"></textarea>
+                    <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sign up to our newsletter</h3>
+                    <p>Stay updated with Fleet2Share insights and updates for optimizing your logistics.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Email address" required>
+                        <button type="submit" class="newsletter-btn">Submit</button>
+                    </form>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+    <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">+31 20 3 55 55 55</a></li>
+    <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">020-3 55 55 55</a></li>
+    <li><i class="fas fa-envelope"></i> <a href="mailto:support@fleets2share.com">support@fleet2share.com</a></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+        });
+
+        // Newsletter form handling
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            if (email) {
+                // Simple email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(email)) {
+                    alert('Thank you for subscribing! We\'ll keep you updated with the latest Fleet2Share news.');
+                    this.reset();
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature items
+        document.querySelectorAll('.feature-item, .web-mockup, .phone-mockup').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced feature item interactions
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Parallax effect for truck image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.truck-image');
+            if (parallax) {
+                const speed = scrolled * 0.2;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Mobile menu toggle (for future mobile optimization)
+        const mobileMenuToggle = () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('mobile-open');
+        };
+
+        // Add loading states for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                console.warn('Failed to load image:', this.src);
+            });
+        });
+    </script>
+</body>
+</html>
