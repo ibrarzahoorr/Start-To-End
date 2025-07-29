@@ -217,7 +217,7 @@
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 500;
             font-size: 16px;
             transition: color 0.3s ease;
@@ -281,7 +281,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            background: #333;
+            background: var(--text-primary);
             margin: 3px 0;
             transition: all 0.3s ease;
             border-radius: 2px;
@@ -307,7 +307,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: #f8f9fa;
+            background: var(--bg-secondary);
             z-index: 99;
             padding-top: 80px;
             transform: translateY(-100%);
@@ -330,7 +330,7 @@
 
         .mobile-menu ul li a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-primary);
             font-size: 20px;
             font-weight: 500;
             display: block;
@@ -931,8 +931,8 @@
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
 
         /* Testimonials Section */
@@ -992,304 +992,6 @@
         .author-info p {
             color: var(--text-secondary);
             font-size: 14px;
-        }
-
-        /* Enhanced AI Chat Widget */
-        .ai-chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .chat-toggle {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #FF6B35, #e55530);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chat-toggle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #2C5AA0, #1e3f73);
-            border-radius: 50%;
-            transform: scale(0);
-            transition: transform 0.4s ease;
-        }
-
-        .chat-toggle:hover::before {
-            transform: scale(1);
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.6);
-        }
-
-        .chat-toggle i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .chat-notification {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            width: 20px;
-            height: 20px;
-            background: #ff3333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: white;
-            font-weight: bold;
-            animation: pulse-notification 2s infinite;
-        }
-
-        @keyframes pulse-notification {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .chat-window {
-            position: absolute;
-            bottom: 90px;
-            right: 0;
-            width: 380px;
-            height: 500px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px var(--shadow-heavy);
-            display: none;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-        }
-
-        .chat-window.active {
-            display: block;
-            animation: slideUpBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        @keyframes slideUpBounce {
-            0% { 
-                transform: translateY(30px) scale(0.8); 
-                opacity: 0; 
-            }
-            100% { 
-                transform: translateY(0) scale(1); 
-                opacity: 1; 
-            }
-        }
-
-        .chat-header {
-            background: linear-gradient(135deg, #FF6B35, #e55530);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .chat-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-avatar {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .chat-status {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .chat-close:hover {
-            background: rgba(255,255,255,0.2);
-            transform: rotate(90deg);
-        }
-
-        .chat-messages {
-            height: 320px;
-            padding: 20px;
-            overflow-y: auto;
-            background: var(--bg-primary);
-        }
-
-        .chat-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-messages::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-            border-radius: 3px;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #FF6B35;
-            border-radius: 3px;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-            animation: messageSlide 0.3s ease;
-        }
-
-        @keyframes messageSlide {
-            from { transform: translateY(10px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .message.user {
-            background: linear-gradient(135deg, #FF6B35, #e55530);
-            color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 4px;
-        }
-
-        .message.bot {
-            background: var(--card-bg);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-bottom-left-radius: 4px;
-        }
-
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 12px 16px;
-            background: var(--card-bg);
-            border-radius: 18px;
-            border-bottom-left-radius: 4px;
-            max-width: 80px;
-            border: 1px solid var(--border-color);
-        }
-
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #FF6B35;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
-        }
-
-        .chat-input-area {
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
-            background: var(--bg-secondary);
-        }
-
-        .chat-input-container {
-            display: flex;
-            gap: 10px;
-            align-items: flex-end;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 25px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 14px;
-            resize: none;
-            max-height: 80px;
-            transition: all 0.3s ease;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: #FF6B35;
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-        }
-
-        .chat-send-btn {
-            width: 40px;
-            height: 40px;
-            background: #FF6B35;
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send-btn:hover {
-            background: #e55530;
-            transform: scale(1.1);
-        }
-
-        .chat-send-btn:disabled {
-            background: var(--text-secondary);
-            cursor: not-allowed;
-            transform: none;
         }
 
         /* Web App Features */
@@ -1655,6 +1357,32 @@
             .newsletter-form {
                 flex-direction: column;
             }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .step-item::after {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-tabs {
+                flex-direction: column;
+            }
         }
 
         /* Loading animation */
@@ -1673,9 +1401,9 @@
     <div class="magic-dots" id="magicDots"></div>
 
     <!-- Enhanced Dark Mode Toggle - FIXED -->
-    <div class="theme-toggle" id="theme-toggle-btn" onclick="switchTheme()">
+    <button class="theme-toggle" id="themeToggleBtn">
         <i class="fas fa-moon" id="themeIcon"></i>
-    </div>
+    </button>
 
     <!-- Header -->
     <header>
@@ -1863,11 +1591,11 @@
         <div class="container">
             <div class="mobile-content">
                 <div class="phones-display">
-                    <div class="phone-mockup">
+                    <div class="phone-mockupp">
                         <img src="https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.56.jpg?v=1751035690" alt="Fleet2Share Mobile App - Driver Interface" loading="lazy" onerror="this.style.display='none'">
                     </div>
                     
-                    <div class="phone-mockup">
+                    <div class="phone-mockupp">
                         <img src="https://cdn.shopify.com/s/files/1/0510/7535/0693/files/WhatsApp_Image_2025-06-27_at_19.43.56_1.jpg?v=1751035690" alt="Fleet2Share Mobile App - Live Tracking" loading="lazy" onerror="this.style.display='none'">
                     </div>
                 </div>
@@ -1903,22 +1631,22 @@
                     <div class="calculator-inputs">
                         <div class="input-group">
                             <label for="vehicles">Number of Vehicles</label>
-                            <input type="number" id="vehicles-input" class="calculator-input" value="10" min="1" max="1000" onchange="updateROI()" oninput="updateROI()">
+                            <input type="number" id="vehicles-input" class="calculator-input" value="10" min="1" max="1000">
                         </div>
                         
                         <div class="input-group">
                             <label for="monthly-cost">Monthly Operating Cost per Vehicle ($)</label>
-                            <input type="number" id="monthly-cost-input" class="calculator-input" value="2500" min="100" max="10000" onchange="updateROI()" oninput="updateROI()">
+                            <input type="number" id="monthly-cost-input" class="calculator-input" value="2500" min="100" max="10000">
                         </div>
                         
                         <div class="input-group">
                             <label for="idle-time">Average Idle Time (%)</label>
-                            <input type="number" id="idle-time-input" class="calculator-input" value="40" min="0" max="100" onchange="updateROI()" oninput="updateROI()">
+                            <input type="number" id="idle-time-input" class="calculator-input" value="40" min="0" max="100">
                         </div>
                         
                         <div class="input-group">
                             <label for="sharing-rate">Expected Sharing Rate (%)</label>
-                            <input type="number" id="sharing-rate-input" class="calculator-input" value="25" min="0" max="100" onchange="updateROI()" oninput="updateROI()">
+                            <input type="number" id="sharing-rate-input" class="calculator-input" value="25" min="0" max="100">
                         </div>
                     </div>
                     
@@ -1942,9 +1670,7 @@
                             <a href="https://www.fleet2share.com/signup" 
                                class="cta-btn cta-primary" 
                                style="background: white; color: #FF6B35; border: 2px solid white; padding: 15px 30px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 8px; display: inline-block; transition: all 0.3s ease;"
-                               target="_blank"
-                               onmouseover="this.style.background='rgba(255,255,255,0.9)'; this.style.transform='translateY(-2px)'"
-                               onmouseout="this.style.background='white'; this.style.transform='translateY(0)'">
+                               target="_blank">
                                 🚀 Start Saving Now - Free Trial
                             </a>
                             <div style="margin-top: 10px; font-size: 12px; opacity: 0.8;">
@@ -1963,28 +1689,60 @@
             <div class="section-header">
                 <div class="section-icon">📊</div>
                 <h2 class="section-title">Live Platform Statistics</h2>
+                <p style="color: var(--text-secondary); margin-top: 15px;">Real-time data from across Pakistan's logistics network</p>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number" id="stat-vehicles" data-target="3247">3,247</div>
                     <div class="stat-label">Active Vehicles</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">🚛 Trucks, Vans, Loaders</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-number" id="stat-companies" data-target="187">187</div>
                     <div class="stat-label">Partner Companies</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">🏢 From Karachi to Lahore</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-number" id="stat-trips" data-target="12580">12,580</div>
                     <div class="stat-label">Successful Trips</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">📦 This Month Only</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-number" id="stat-savings" data-target="42">42</div>
                     <div class="stat-label">% Cost Reduction</div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px;">💰 Average Savings</div>
                 </div>
+            </div>
+            
+            <!-- Additional Stats Row -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border-color);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🌍</div>
+                    <div style="font-size: 18px; font-weight: 600; color: #28a745; margin-bottom: 4px;">15+</div>
+                    <div style="font-size: 13px; color: var(--text-secondary);">Major Cities Covered</div>
+                </div>
+                
+                <div style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border-color);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">⚡</div>
+                    <div style="font-size: 18px; font-weight: 600; color: #FF6B35; margin-bottom: 4px;">2.3min</div>
+                    <div style="font-size: 13px; color: var(--text-secondary);">Average Booking Time</div>
+                </div>
+                
+                <div style="text-align: center; padding: 20px; background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border-color);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">📱</div>
+                    <div style="font-size: 18px; font-weight: 600; color: #2C5AA0; margin-bottom: 4px;">24/7</div>
+                    <div style="font-size: 13px; color: var(--text-secondary);">Support in Urdu</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--text-secondary); font-size: 14px;">
+                    🔄 Statistics update every 5 minutes | Last updated: <span id="lastUpdated">2 minutes ago</span>
+                </p>
             </div>
         </div>
     </section>
@@ -1999,15 +1757,15 @@
             
             <div class="demo-container">
                 <div class="demo-tabs">
-                    <button class="demo-tab active" id="tab-tracking" onclick="switchDemo('tracking')">
+                    <button class="demo-tab active" data-tab="tracking">
                         <i class="fas fa-map-marked-alt" style="margin-right: 8px;"></i>
                         Live Tracking
                     </button>
-                    <button class="demo-tab" id="tab-sharing" onclick="switchDemo('sharing')">
+                    <button class="demo-tab" data-tab="sharing">
                         <i class="fas fa-handshake" style="margin-right: 8px;"></i>
                         Vehicle Sharing
                     </button>
-                    <button class="demo-tab" id="tab-analytics" onclick="switchDemo('analytics')">
+                    <button class="demo-tab" data-tab="analytics">
                         <i class="fas fa-chart-line" style="margin-right: 8px;"></i>
                         Analytics
                     </button>
@@ -2017,36 +1775,44 @@
                     <div class="demo-feature active" id="demo-tracking">
                         <div class="feature-showcase">
                             <div class="feature-description">
-                                <h3>Real-Time Vehicle Tracking</h3>
+                                <h3>🚛 Real-Time Vehicle Tracking</h3>
                                 <p>Monitor your entire fleet in real-time with precision GPS tracking, intelligent route optimization, and instant notifications for complete operational visibility.</p>
                                 <ul class="feature-points">
-                                    <li>Live GPS tracking with 99.9% accuracy</li>
-                                    <li>Automatic route optimization saves 18% fuel</li>
-                                    <li>Instant alerts for delays, breakdowns, or issues</li>
-                                    <li>Driver behavior monitoring & scoring</li>
-                                    <li>Geofencing with custom boundary alerts</li>
+                                    <li>Live GPS tracking with 99.9% accuracy across Pakistan</li>
+                                    <li>Smart route optimization saves 18% fuel costs</li>
+                                    <li>Instant WhatsApp/SMS alerts for delays or breakdowns</li>
+                                    <li>Driver behavior scoring & performance tracking</li>
+                                    <li>Geofencing alerts for major cities (Lahore, Karachi, Islamabad)</li>
                                 </ul>
                                 <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #28a745;">
-                                    <strong style="color: #28a745;">Right Now:</strong><br>
+                                    <strong style="color: #28a745;">🔴 LIVE NOW:</strong><br>
                                     <span style="color: var(--text-secondary); font-size: 14px;">
-                                        Vehicle LHE-7432 → En route to Karachi | <strong style="color: #28a745;">ETA: 2:45 PM</strong>
+                                        <strong>Vehicle LHE-7432</strong> → Lahore to Karachi | Driver: Muhammad Ali<br>
+                                        <strong style="color: #28a745;">ETA: 2:45 PM</strong> | Fuel: 78% | Speed: 85 km/h
                                     </span>
                                 </div>
                             </div>
                             <div class="feature-visual">
-                                <div style="text-align: center;">
-                                    <i class="fas fa-map-marked-alt feature-icon-large" style="color: #28a745; margin-bottom: 20px;"></i>
-                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #28a745;">
-                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                            <span style="font-weight: 600; color: var(--text-primary);">Vehicle: LHE-7432</span>
-                                            <span style="color: #28a745; font-size: 12px;">● MOVING</span>
+                                <div style="text-align: center; padding: 20px;">
+                                    <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: #28a745; margin-bottom: 20px; animation: pulse 2s infinite;"></i>
+                                    
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 2px solid #28a745; box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
+                                            <span style="font-weight: 600; color: var(--text-primary);">🚛 LHE-7432</span>
+                                            <span style="color: #28a745; font-size: 12px; font-weight: 600;">● MOVING</span>
                                         </div>
-                                        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.4;">
-                                            <div style="margin-bottom: 8px;">📍 Current: M-2 Motorway, KM 347</div>
-                                            <div style="margin-bottom: 8px;">🎯 Destination: Port Qasim, Karachi</div>
-                                            <div style="margin-bottom: 8px;">⏱️ ETA: 2:45 PM (On Schedule)</div>
-                                            <div style="margin-bottom: 8px;">⛽ Fuel: 78% | Speed: 85 km/h</div>
-                                            <div style="color: #28a745;">Driver: Muhammad Ali ⭐ 4.8/5</div>
+                                        
+                                        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                                            <div style="margin-bottom: 8px;">📍 <strong>Current:</strong> M-2 Motorway, KM 347</div>
+                                            <div style="margin-bottom: 8px;">🎯 <strong>Destination:</strong> Port Qasim, Karachi</div>
+                                            <div style="margin-bottom: 8px;">⏱️ <strong>ETA:</strong> 2:45 PM (On Schedule)</div>
+                                            <div style="margin-bottom: 8px;">⛽ <strong>Fuel:</strong> 78% | 🏃 <strong>Speed:</strong> 85 km/h</div>
+                                            <div style="margin-bottom: 8px;">📦 <strong>Load:</strong> Electronics (12.5 tons)</div>
+                                            <div style="color: #28a745; font-weight: 600;">👨‍💼 <strong>Driver:</strong> Muhammad Ali ⭐ 4.8/5</div>
+                                        </div>
+                                        
+                                        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid var(--border-color); text-align: center;">
+                                            <span style="font-size: 11px; color: var(--text-muted);">Last Updated: 2 minutes ago</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2057,34 +1823,56 @@
                     <div class="demo-feature" id="demo-sharing">
                         <div class="feature-showcase">
                             <div class="feature-description">
-                                <h3>Smart Vehicle Sharing Network</h3>
-                                <p>Connect with 150+ partner companies and share vehicles efficiently. Our AI matches your idle vehicles with nearby companies who need them.</p>
+                                <h3>🤝 Smart Vehicle Sharing Network</h3>
+                                <p>Connect with 187+ partner companies across Pakistan and share vehicles efficiently. Our AI matches your idle vehicles with nearby companies who need them.</p>
                                 <ul class="feature-points">
-                                    <li>Intelligent matching with 95% success rate</li>
-                                    <li>Automated booking in under 2 minutes</li>
-                                    <li>Revenue sharing: Earn $150-500/vehicle/month</li>
-                                    <li>Full insurance coverage included</li>
-                                    <li>Real-time availability tracking</li>
+                                    <li>AI-powered matching with 95% success rate in major cities</li>
+                                    <li>Automated booking system - complete in under 2 minutes</li>
+                                    <li>Revenue sharing: Earn PKR 15,000-45,000/vehicle/month</li>
+                                    <li>Full insurance coverage through Adamjee & EFU partners</li>
+                                    <li>Real-time availability across Lahore, Karachi, Islamabad</li>
                                 </ul>
                                 <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #FF6B35;">
-                                    <strong style="color: #FF6B35;">Live Example:</strong><br>
+                                    <strong style="color: #FF6B35;">💰 SUCCESS STORY:</strong><br>
                                     <span style="color: var(--text-secondary); font-size: 14px;">
-                                        Truck #PK-2451 shared with Asapp Studio → <strong style="color: #28a745;">$340 earned this month</strong>
+                                        <strong>Truck ISB-2451</strong> shared with <strong>Asapp Studio</strong><br>
+                                        <strong style="color: #28a745;">Monthly Earnings: PKR 34,500</strong> | Utilization: +68%
                                     </span>
                                 </div>
                             </div>
                             <div class="feature-visual">
-                                <div style="text-align: center;">
-                                    <i class="fas fa-handshake feature-icon-large" style="color: #FF6B35; margin-bottom: 20px;"></i>
-                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #FF6B35; margin-top: 20px;">
-                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                            <span style="font-weight: 600; color: var(--text-primary);">Available Now</span>
-                                            <span style="color: #28a745; font-size: 12px;">● LIVE</span>
+                                <div style="text-align: center; padding: 20px;">
+                                    <i class="fas fa-handshake" style="font-size: 4rem; color: #FF6B35; margin-bottom: 20px; animation: bounce 2s infinite;"></i>
+                                    
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 2px solid #FF6B35; box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
+                                            <span style="font-weight: 600; color: var(--text-primary);">🚛 Available Now</span>
+                                            <span style="color: #28a745; font-size: 12px; font-weight: 600;">● LIVE</span>
                                         </div>
-                                        <div style="font-size: 14px; color: var(--text-secondary);">
-                                            <div>📍 Lahore → Karachi</div>
-                                            <div>🚛 Capacity: 12 tons</div>
-                                            <div>💰 Rate: $280/day</div>
+                                        
+                                        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px;">
+                                            <div style="margin-bottom: 8px;">📍 <strong>Route:</strong> Lahore → Karachi</div>
+                                            <div style="margin-bottom: 8px;">🚛 <strong>Capacity:</strong> 15 tons (Temperature Controlled)</div>
+                                            <div style="margin-bottom: 8px;">💰 <strong>Rate:</strong> PKR 28,000/day</div>
+                                            <div style="margin-bottom: 8px;">📅 <strong>Available:</strong> Tomorrow 6:00 AM</div>
+                                            <div style="color: #FF6B35; font-weight: 600;">🏢 <strong>Owner:</strong> Malik Transport Ltd.</div>
+                                        </div>
+                                        
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                                            <div style="background: var(--bg-secondary); padding: 10px; border-radius: 8px; text-align: center;">
+                                                <div style="font-size: 16px; font-weight: 600; color: #28a745;">⭐ 4.9</div>
+                                                <div style="font-size: 11px; color: var(--text-muted);">Rating</div>
+                                            </div>
+                                            <div style="background: var(--bg-secondary); padding: 10px; border-radius: 8px; text-align: center;">
+                                                <div style="font-size: 16px; font-weight: 600; color: #2C5AA0;">245</div>
+                                                <div style="font-size: 11px; color: var(--text-muted);">Trips</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="margin-top: 15px; text-align: center;">
+                                            <button style="background: #FF6B35; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                                                📱 Request Booking
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -2095,43 +1883,61 @@
                     <div class="demo-feature" id="demo-analytics">
                         <div class="feature-showcase">
                             <div class="feature-description">
-                                <h3>Advanced Analytics & Intelligence</h3>
-                                <p>Get actionable insights with our comprehensive analytics dashboard. Track KPIs, predict maintenance, and optimize operations with AI-powered recommendations.</p>
+                                <h3>📊 Advanced Analytics & Intelligence</h3>
+                                <p>Get actionable insights with our comprehensive analytics dashboard. Track KPIs, predict maintenance, and optimize operations with AI-powered recommendations for Pakistani logistics.</p>
                                 <ul class="feature-points">
-                                    <li>Real-time KPI monitoring dashboard</li>
-                                    <li>Predictive maintenance saves 25% costs</li>
-                                    <li>Route optimization reduces fuel by 18%</li>
-                                    <li>Driver performance scoring system</li>
-                                    <li>Carbon footprint tracking & reporting</li>
+                                    <li>Real-time KPI monitoring across all major routes</li>
+                                    <li>Predictive maintenance saves 25% on repair costs</li>
+                                    <li>Route optimization reduces fuel costs by 18%</li>
+                                    <li>Driver performance scoring with Urdu language support</li>
+                                    <li>Carbon footprint tracking & ESG reporting</li>
                                 </ul>
                                 <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 10px; border-left: 4px solid #2C5AA0;">
-                                    <strong style="color: #2C5AA0;">This Month:</strong><br>
+                                    <strong style="color: #2C5AA0;">📈 THIS MONTH:</strong><br>
                                     <span style="color: var(--text-secondary); font-size: 14px;">
-                                        Fleet Efficiency: <strong style="color: #28a745;">87%</strong> | Cost Saved: <strong style="color: #28a745;">$12,450</strong>
+                                        Fleet Efficiency: <strong style="color: #28a745;">87%</strong> | Cost Saved: <strong style="color: #28a745;">PKR 1,24,500</strong><br>
+                                        Best Route: <strong>Lahore-Karachi via M-2</strong> (12% faster)
                                     </span>
                                 </div>
                             </div>
                             <div class="feature-visual">
-                                <div style="text-align: center;">
-                                    <i class="fas fa-chart-line feature-icon-large" style="color: #2C5AA0; margin-bottom: 20px;"></i>
-                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 2px solid #2C5AA0;">
-                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 12px;">
-                                            <div style="text-align: center;">
-                                                <div style="color: #FF6B35; font-size: 24px; font-weight: 700;">2,847</div>
-                                                <div style="color: var(--text-secondary);">Total Trips</div>
+                                <div style="text-align: center; padding: 20px;">
+                                    <i class="fas fa-chart-line" style="font-size: 4rem; color: #2C5AA0; margin-bottom: 20px; animation: pulse 2s infinite;"></i>
+                                    
+                                    <div style="background: var(--card-bg); padding: 20px; border-radius: 15px; border: 2px solid #2C5AA0; box-shadow: 0 10px 30px rgba(44, 90, 160, 0.2);">
+                                        <div style="text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);">
+                                            <span style="font-weight: 600; color: var(--text-primary);">📊 Live Dashboard</span>
+                                        </div>
+                                        
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px; margin-bottom: 15px;">
+                                            <div style="text-align: center; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                                                <div style="color: #FF6B35; font-size: 20px; font-weight: 700; margin-bottom: 4px;">2,847</div>
+                                                <div style="color: var(--text-secondary); font-size: 11px;">Total Trips</div>
                                             </div>
-                                            <div style="text-align: center;">
-                                                <div style="color: #2C5AA0; font-size: 24px; font-weight: 700;">94.2%</div>
-                                                <div style="color: var(--text-secondary);">On-Time Rate</div>
+                                            <div style="text-align: center; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                                                <div style="color: #2C5AA0; font-size: 20px; font-weight: 700; margin-bottom: 4px;">94.2%</div>
+                                                <div style="color: var(--text-secondary); font-size: 11px;">On-Time Rate</div>
                                             </div>
-                                            <div style="text-align: center;">
-                                                <div style="color: #28a745; font-size: 24px; font-weight: 700;">$45.2K</div>
-                                                <div style="color: var(--text-secondary);">Monthly Revenue</div>
+                                            <div style="text-align: center; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                                                <div style="color: #28a745; font-size: 20px; font-weight: 700; margin-bottom: 4px;">₹45.2L</div>
+                                                <div style="color: var(--text-secondary); font-size: 11px;">Revenue</div>
                                             </div>
-                                            <div style="text-align: center;">
-                                                <div style="color: #17a2b8; font-size: 24px; font-weight: 700;">156</div>
-                                                <div style="color: var(--text-secondary);">Active Drivers</div>
+                                            <div style="text-align: center; background: var(--bg-secondary); padding: 12px; border-radius: 8px;">
+                                                <div style="color: #17a2b8; font-size: 20px; font-weight: 700; margin-bottom: 4px;">156</div>
+                                                <div style="color: var(--text-secondary); font-size: 11px;">Active Drivers</div>
                                             </div>
+                                        </div>
+                                        
+                                        <div style="padding: 12px; background: linear-gradient(135deg, #28a745, #20c997); border-radius: 8px; text-align: center; color: white;">
+                                            <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">🎯 Weekly Goal</div>
+                                            <div style="font-size: 12px; opacity: 0.9;">87% Complete | 3 days remaining</div>
+                                            <div style="background: rgba(255,255,255,0.3); border-radius: 10px; height: 6px; margin-top: 8px; position: relative;">
+                                                <div style="background: white; height: 100%; width: 87%; border-radius: 10px;"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="margin-top: 12px; text-align: center; font-size: 11px; color: var(--text-muted);">
+                                            🔄 Updates every 5 minutes
                                         </div>
                                     </div>
                                 </div>
@@ -2148,71 +1954,35 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-icon">⭐</div>
-                <h2 class="section-title">What Our Customers Say</h2>
+                <h2 class="section-title">What Our Pakistani Partners Say</h2>
             </div>
             
             <div class="testimonials-slider">
                 <div class="testimonial-item">
                     <p class="testimonial-text">
-                        "Fleet2Share has revolutionized our logistics operations at Asapp Studio. We've reduced operational costs by 35% and improved delivery efficiency dramatically. The vehicle sharing feature alone saves us $4,200 monthly. The real-time tracking and AI-powered route optimization are absolute game changers for our business!"
+                        "Fleet2Share has completely transformed our logistics operations at Asapp Studio in Lahore. We've reduced operational costs by 35% and improved delivery efficiency across Punjab dramatically. The vehicle sharing feature alone saves us PKR 4,20,000 monthly. The real-time tracking from Lahore to Karachi and AI-powered route optimization through GT Road are absolute game changers for our growing business!"
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">IZ</div>
                         <div class="author-info">
                             <h4>Ibrar Zahoor</h4>
                             <p>Operations Manager, Asapp Studio</p>
+                            <p style="font-size: 12px; color: #FF6B35; margin-top: 4px;">📍 Lahore, Punjab • 🚛 25+ Vehicles</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Additional testimonials can be rotated -->
+            <div style="text-align: center; margin-top: 30px;">
+                <div style="display: inline-flex; gap: 10px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #FF6B35;"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--border-color);"></div>
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--border-color);"></div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- Enhanced AI Chat Widget -->
-    <div class="ai-chat-widget">
-        <button class="chat-toggle" onclick="toggleChat()">
-            <i class="fas fa-robot"></i>
-            <div class="chat-notification" id="chatNotification" style="display: none;">1</div>
-        </button>
-        
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <div class="chat-avatar">🤖</div>
-                    <div>
-                        <div style="font-weight: 600;">Fleet2Share AI</div>
-                        <div class="chat-status">Online • Powered by DeepSeek</div>
-                    </div>
-                </div>
-                <button class="chat-close" onclick="toggleChat()">×</button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    <div>👋 Hi there! I'm your Fleet2Share AI assistant powered by DeepSeek.</div>
-                </div>
-                <div class="message bot">
-                    <div>I can help you with:</div>
-                    <div style="margin-top: 8px;">
-                        • Platform features & pricing<br>
-                        • Technical questions<br>
-                        • Account setup<br>
-                        • Best practices
-                    </div>
-                </div>
-                <div class="message bot" style="margin-top: 10px;">
-                    <div>How can I assist you today? 🚀</div>
-                </div>
-            </div>
-            <div class="chat-input-area">
-                <div class="chat-input-container">
-                    <textarea class="chat-input" id="chatInput" placeholder="Type your message..." rows="1" onkeypress="handleChatKeyPress(event)" oninput="adjustTextareaHeight(this)"></textarea>
-                    <button class="chat-send-btn" id="chatSendBtn" onclick="sendChatMessage()">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer id="contact" class="footer">
@@ -2230,17 +2000,126 @@
                 <div class="footer-section">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-    <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">+31 20 3 55 55 55</a></li>
-    <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">020-3 55 55 55</a></li>
-    <li><i class="fas fa-envelope"></i> <a href="mailto:support@fleets2share.com">support@fleet2share.com</a></li>
-</ul>
-
+                        <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">+31 20 3 55 55 55</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+312035555555">020-3 55 55 55</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@fleets2share.com">support@fleet2share.com</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Theme Toggle Functionality - FIXED
+        function initThemeToggle() {
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            // Check for saved theme preference or default to 'light'
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Update icon based on current theme
+            updateThemeIcon(savedTheme);
+            
+            // Add click event listener
+            themeToggleBtn.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+        }
+        
+        function updateThemeIcon(theme) {
+            const themeIcon = document.getElementById('themeIcon');
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // ROI Calculator Functionality - FIXED
+        function updateROI() {
+            const vehicles = parseInt(document.getElementById('vehicles-input').value) || 0;
+            const monthlyCost = parseInt(document.getElementById('monthly-cost-input').value) || 0;
+            const idleTime = parseInt(document.getElementById('idle-time-input').value) || 0;
+            const sharingRate = parseInt(document.getElementById('sharing-rate-input').value) || 0;
+            
+            // Calculate savings
+            const idleTimeFraction = idleTime / 100;
+            const sharingRateFraction = sharingRate / 100;
+            const potentialSavings = vehicles * monthlyCost * idleTimeFraction * sharingRateFraction;
+            const monthlySavings = Math.round(potentialSavings);
+            const yearlySavings = monthlySavings * 12;
+            const efficiencyGain = Math.round(idleTime * sharingRateFraction);
+            
+            // Update display
+            document.getElementById('monthly-savings').textContent = `$${monthlySavings.toLocaleString()}`;
+            document.getElementById('yearly-savings').textContent = `$${yearlySavings.toLocaleString()}`;
+            document.getElementById('efficiency-gain').textContent = `${efficiencyGain}%`;
+        }
+
+        // Demo Tabs Functionality - FIXED
+        function initDemoTabs() {
+            const tabs = document.querySelectorAll('.demo-tab');
+            const features = document.querySelectorAll('.demo-feature');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and features
+                    tabs.forEach(t => t.classList.remove('active'));
+                    features.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding feature
+                    const targetFeature = document.getElementById(`demo-${targetTab}`);
+                    if (targetFeature) {
+                        targetFeature.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Mobile Menu Functions - FIXED
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+
+        // Magic Dots Animation
+        function createMagicDots() {
+            const magicDots = document.getElementById('magicDots');
+            const numberOfDots = 20;
+            
+            for (let i = 0; i < numberOfDots; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'magic-dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.animationDelay = Math.random() * 6 + 's';
+                dot.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                magicDots.appendChild(dot);
+            }
+        }
+
         // Page loading animation
         window.addEventListener('load', function() {
             document.body.classList.remove('loading');
@@ -2248,93 +2127,144 @@
         });
 
         // Newsletter form handling
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.newsletter-input').value;
-            if (email) {
-                // Simple email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (emailRegex.test(email)) {
-                    alert('Thank you for subscribing! We\'ll keep you updated with the latest Fleet2Share news.');
-                    this.reset();
-                } else {
-                    alert('Please enter a valid email address.');
+        function initNewsletterForm() {
+            document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('.newsletter-input').value;
+                if (email) {
+                    // Simple email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailRegex.test(email)) {
+                        alert('Thank you for subscribing! We\'ll keep you updated with the latest Fleet2Share news.');
+                        this.reset();
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
-        });
+        }
 
         // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-on-scroll');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all feature items
+            document.querySelectorAll('.feature-item, .web-mockup, .phone-mockup').forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
-
-        // Observe all feature items
-        document.querySelectorAll('.feature-item, .web-mockup, .phone-mockup').forEach(el => {
-            observer.observe(el);
-        });
+        }
 
         // Enhanced feature item interactions
-        document.querySelectorAll('.feature-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+        function initFeatureInteractions() {
+            document.querySelectorAll('.feature-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                });
             });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-            });
-        });
+        }
 
         // Parallax effect for truck image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.truck-image');
-            if (parallax) {
-                const speed = scrolled * 0.2;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-
-        // Mobile menu toggle (for future mobile optimization)
-        const mobileMenuToggle = () => {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('mobile-open');
-        };
+        function initParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.truck-image');
+                if (parallax) {
+                    const speed = scrolled * 0.2;
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+        }
 
         // Add loading states for images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
+        function initImageLoading() {
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    console.warn('Failed to load image:', this.src);
+                });
+            });
+        }
+
+        // Update last updated timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const element = document.getElementById('lastUpdated');
+            if (element) {
+                element.textContent = 'just now';
+                setTimeout(() => {
+                    element.textContent = '1 minute ago';
+                }, 60000);
+            }
+        }
+
+        // Initialize all functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            initDemoTabs();
+            initNewsletterForm();
+            initSmoothScrolling();
+            initScrollAnimations();
+            initFeatureInteractions();
+            initParallaxEffect();
+            initImageLoading();
+            createMagicDots();
+            updateTimestamp();
+            
+            // Add event listeners for calculator inputs
+            document.querySelectorAll('.calculator-input').forEach(input => {
+                input.addEventListener('input', updateROI);
+                input.addEventListener('change', updateROI);
             });
             
-            img.addEventListener('error', function() {
-                this.style.display = 'none';
-                console.warn('Failed to load image:', this.src);
-            });
+            // Initial calculation
+            updateROI();
+            
+            // Update stats periodically
+            setInterval(updateTimestamp, 300000); // Update every 5 minutes
+        });
+
+        // Window load event for final setup
+        window.addEventListener('load', function() {
+            // Final setup after all resources loaded
+            console.log('Fleet2Share website loaded successfully!');
         });
     </script>
 </body>
